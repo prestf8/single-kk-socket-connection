@@ -1,6 +1,5 @@
 package app;
 
-
 public class KKProtocol {
     private int state = 0; // 0 (KK state), 1 (State), 2 (Terrible Joke and Go again?)
     private String[] variationWhosThere = 
@@ -25,7 +24,6 @@ public class KKProtocol {
         } else {
             if (arrayContains(this.variationYour, inp)) {
                 response = "Your momma ohhhhhh";
-                state = 0;
             } else {
                 response = "You're supposed to say \"Your who?\"";
             }
@@ -33,7 +31,7 @@ public class KKProtocol {
 
         return response;
     }
-    
+
     public static <T> boolean arrayContains (final T[] arr, final T str ) {
         for(final T ele: arr) {
             if (ele == str || ele.equals(str))

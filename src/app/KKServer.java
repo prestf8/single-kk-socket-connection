@@ -27,15 +27,21 @@ public class KKServer {
             ServerSocket serverS = new ServerSocket(portNumber);
             Socket clientS = serverS.accept();
             BufferedReader input = new BufferedReader(new InputStreamReader(clientS.getInputStream()));
-            PrintWriter output = new PrintWriter(clientS.getOutputStream());
+            PrintWriter output = new PrintWriter(clientS.getOutputStream(), true);
         ) {
-            KKProtocol protocol = new KKProtocol();
-            protocol.processInput(null);
-
-            String inpStr, outStr;
+            
+            KKProtocol protocol = new KKProtocol(); // Instantiate protocol 
+            output.println(protocol.processInput(null)); // Startup message server -> client (Brings protocol to stage 1)
+            
+            String inpStr; // input for communication with the client
+            String outStr; // output for communication with the client
             while ((inpStr = input.readLine()) != null) {
                 outStr = protocol.processInput(inpStr);
+                output.println(outStr);
 
+                if (outStr.equals("Your momma ohhhhhh")) {
+                    break;
+                }
             } 
         } catch (IOException e) {
             e.printStackTrace();

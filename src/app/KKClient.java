@@ -3,7 +3,9 @@ package app;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.io.PrintWriter;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class KKClient {
     public static void main (String[] args) {
@@ -24,9 +26,25 @@ public class KKClient {
 
         try(
             Socket clientS = new Socket(host, portNumber);
-            PrintWriter output = new PrintWriter(clientS.getOutputStream(), true);
+            BufferedReader inp = new BufferedReader(new InputStreamReader(clientS.getInputStream()));
+            BufferedReader stdInp = new BufferedReader(new InputStreamReader(System.in));
+            PrintWriter out = new PrintWriter(clientS.getOutputStream(), true);
         ) {
-            output.println("this is from the client");
+            String inpStr; // input for communication with the server
+            String stdInpStr; // input for communication with the user
+
+            while((inpStr = inp.readLine()) != null) {
+                System.out.println("CLIENT: " + inpStr);
+
+                if (inpStr.equals("Your momma ohhhhhh")) {
+                    break;
+                }
+
+                stdInpStr = stdInp.readLine(); // Everytime server sends us something lets us respond
+                if (stdInpStr != null) {
+                    out.println(stdInpStr);
+                }
+            }
         } catch (UnknownHostException e) {
             System.err.println("Need a proper host name (127.0.0.1)");
             System.exit(0);
