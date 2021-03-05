@@ -34,9 +34,9 @@ public class KKClient {
             String stdInpStr; // input for communication with the user
 
             while((inpStr = inp.readLine()) != null) {
-                System.out.println("CLIENT: " + inpStr);
+                System.out.println("SERVER -> CLIENT: " + inpStr);
 
-                if (inpStr.equals("Your momma ohhhhhh")) {
+                if (inpStr.equals("Your programming skills are wack...")) {
                     break;
                 }
 

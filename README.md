@@ -1,14 +1,24 @@
-## Getting Started
+# Simple Knock Knock Socket Connection
+### 3/4/2021
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+<hr>
 
-## Folder Structure
+- Written in **JAVA**
 
-The workspace contains two folders by default, where:
+## HOW TO USE
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- Make sure your current directory is in the **src** folder of this **project**
 
-## Dependency Management
+**1) Run server through this command:**
+```
+// UnregisteredPortNumber: 10000
+java app/KKServer <UnregisteredPortnumber>
+```
+<br>
 
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+**2) Run client through this command on a separate terminal:**
+```
+// IPAddress/Host : 127.0.0.1 OR localhost
+// Same PortNumber as Server: 10000 
+java app/KKClient <localhost> <UnregisteredPortNumber>
+```

@@ -23,7 +23,7 @@ public class KKProtocol {
             }
         } else {
             if (arrayContains(this.variationYour, inp)) {
-                response = "Your momma ohhhhhh";
+                response = "Your programming skills are wack...";
             } else {
                 response = "You're supposed to say \"Your who?\"";
             }

@@ -23,6 +23,8 @@ public class KKServer {
             System.exit(0);
         }
 
+        System.out.println("Running server...");
+
         try(
             ServerSocket serverS = new ServerSocket(portNumber);
             Socket clientS = serverS.accept();
@@ -39,7 +41,7 @@ public class KKServer {
                 outStr = protocol.processInput(inpStr);
                 output.println(outStr);
 
-                if (outStr.equals("Your momma ohhhhhh")) {
+                if (outStr.equals("Your programming skills are wack...")) {
                     break;
                 }
             } 
